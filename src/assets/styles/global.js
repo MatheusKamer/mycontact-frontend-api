@@ -9,8 +9,9 @@ export default createGlobalStyle`
   }
 
   body {
-    background: ${({ theme }) => theme.backgroundColor}; /* "theme" é uma props do ThemeProvider criado no arquivo App.js */
+    background: ${({ theme }) => theme.colors.background}; /* "theme" é uma props do ThemeProvider criado no arquivo App.js */
     font-size: 16px;
+    color: ${({ theme }) => theme.colors.gray[900]}
   }
 
   button {
