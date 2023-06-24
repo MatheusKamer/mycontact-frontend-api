@@ -1,6 +1,7 @@
-import { Container } from './styles'
-
+/* Bibliotecas */
 import PropTypes from 'prop-types'
+/* Estilos */
+import { Container } from './styles'
 
 export default function FormGroup({ children, error }) {
   return (
