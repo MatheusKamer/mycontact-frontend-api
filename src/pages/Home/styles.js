@@ -45,11 +45,9 @@ export const Header = styled.header`
   }
 `
 
-export const ListContainer = styled.div`
+export const ListContainer = styled.header`
   margin-top: 24px;
-
-  header {
-    margin-bottom: 8px;
+  margin-bottom: 8px;
 
     button {
       border: none;
@@ -63,7 +61,11 @@ export const ListContainer = styled.div`
         color: ${({ theme }) => theme.colors.primary.main};
       }
     }
-  }
+
+    img {
+      transform: rotate(${({ orderBy }) => orderBy === 'asc' ? '-180deg' : '-360deg'});
+      transition: 0.2s ease-in;
+    }
 `
 
 export const Card = styled.div`
