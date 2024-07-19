@@ -1,3 +1,4 @@
+// eslint-disable-next-line import/no-anonymous-default-export
 export default { /* Estilos usados no ThemeProvider */
   colors: {
     background: '#F6F5FC',
@@ -10,6 +11,7 @@ export default { /* Estilos usados no ThemeProvider */
     gray: {
       900: '#222222',
       200: '#BCBCBC',
+      100: '#E5E5E5',
     },
     danger: {
       light: '#F97171',
