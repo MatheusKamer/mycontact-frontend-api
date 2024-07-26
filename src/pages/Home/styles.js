@@ -152,3 +152,21 @@ export const EmptyListContainer = styled.div`
     color: ${({ theme }) => theme.colors.primary.main};
   }
 `
+
+export const SearchNotFoundContainer = styled.div`
+  margin-top: 16px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 16px;
+
+  img {
+    width: 100px;
+  }
+
+  p {
+    color: ${({ theme }) => theme.colors.gray[200]};
+    text-align: center;
+    word-break: break-word;
+  }
+`
