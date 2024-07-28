@@ -27,9 +27,10 @@ export default function ContactForm({ buttonLabel }) {
 
   useEffect(() => {
     async function loadCategories() {
-      const categories = await CategoriesService.listCategories();
-      console.log(categories)
-      setCategories(categories)
+      try {
+        const categories = await CategoriesService.listCategories();
+        setCategories(categories)
+      } catch {}
     }
 
     loadCategories()
@@ -106,7 +107,7 @@ export default function ContactForm({ buttonLabel }) {
             </option>
           ))}
         </Select>
-      </FormGroup> qdddwdsa
+      </FormGroup>
 
       <ButtonContainer>
         <Button type='submit' disabled={!isFormValid}>
