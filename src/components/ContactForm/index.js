@@ -1,12 +1,13 @@
 /* Bibliotecas */
 import PropTypes from 'prop-types'
+import { useEffect, useState } from 'react'
 /* utilFunctions */
 import isEmailValid from '../../utils/isEmailValid'
 import formatPhone from '../../utils/formatPhone'
 import useErrors from '../../hooks/useErrors'
+import CategoriesService from '../../services/CategoriesService'
 /* Estilos */
 import { Form, ButtonContainer } from './styles'
-import { useState } from 'react'
 /* Componentes */
 import FormGroup from '../FormGroup'
 import Input from '../Input'
@@ -18,10 +19,21 @@ export default function ContactForm({ buttonLabel }) {
   const [email, setEmail] = useState('');
   const [phone, setPhone] = useState('');
   const [category, setCategory] = useState('');
+  const [categories, setCategories] = useState([]);
 
   const { errors, setError, removeError, getErrorMessageByFieldName } = useErrors()
 
   const isFormValid = (name && errors.length === 0);
+
+  useEffect(() => {
+    async function loadCategories() {
+      const categories = await CategoriesService.listCategories();
+      console.log(categories)
+      setCategories(categories)
+    }
+
+    loadCategories()
+  }, [])
 
   function handleNameChange(event) {
     setName(event.target.value);
@@ -87,12 +99,14 @@ export default function ContactForm({ buttonLabel }) {
           value={category}
           onChange={(event) => setCategory(event.target.value)}
         >
-          <option value="">Categoria</option>
-          <option value="instagram">Instagram</option>
-          <option value="facebook">Facebook</option>
-          <option value="trabalho">Trabalho</option>
+          <option value=''>Selecione uma categoria</option>
+          {categories.map((category) => (
+            <option key={category.id} value={category.id}>
+              {category.name}
+            </option>
+          ))}
         </Select>
-      </FormGroup>
+      </FormGroup> qdddwdsa
 
       <ButtonContainer>
         <Button type='submit' disabled={!isFormValid}>
