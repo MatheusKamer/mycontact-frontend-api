@@ -17,6 +17,11 @@ export default { /* Estilos usados no ThemeProvider */
       light: '#F97171',
       main: '#FC5050',
       dark: '#F63131',
-    }
+    },
+    success: {
+      light: '#6FCF97',
+      main: '#51CA73',
+      dark: '#43A047',
+    },
   },
 };
